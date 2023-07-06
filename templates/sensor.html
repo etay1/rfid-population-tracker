@@ -6,7 +6,7 @@
 <body>
     <h1>Room Details</h1>
 
-    <form>
+    <form action="/sensor" id="sensor-form" method="post" enctype="multipart/form-data">
         <label for="room">Room:</label>
         <input type="text" id="room" name="room" required>
 
@@ -19,7 +19,7 @@
         <label for="time-in">Timestamp:</label>
         <input type="text" id="time" name="time" required>
 
-        <button type="button" onclick="addRoom()">Add Room</button>
+        <input type="submit" value="Post">
     </form>
 
     <h2>Current Rooms:</h2>
@@ -31,7 +31,7 @@
             <th>Time Slots</th>
         </tr>
     </table>
-
+<!--
     <script>
         function addRoom() {
             // Retrieve input values
@@ -70,5 +70,6 @@
             document.getElementById('time').value = '';
         }
     </script>
+    -->
 </body>
 </html>
