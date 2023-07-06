@@ -19,8 +19,14 @@ Schema: {
 """
 
 def insert_record(roomID,bandID,group,timestamp):
-    
-    
-    
-    
+    room_collection = db["rooms"]
+
+    #see if roomID exists in collection 
+        #if so update the collection with the bandID/group/timestamp
+            #if bandID exists update timestamp, 
+                #if no records exist for time_slots create new entry in list
+                #otherwise add appropriate entry for time_out
+            #create new object in kvp in roomID : []    
+    #else make new record
+
     return
