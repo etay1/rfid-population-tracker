@@ -16,11 +16,8 @@
         <label for="group">Group:</label>
         <input type="text" id="group" name="group" required>
 
-        <label for="time-in">Time In:</label>
-        <input type="text" id="time-in" name="time-in" required>
-
-        <label for="time-out">Time Out:</label>
-        <input type="text" id="time-out" name="time-out">
+        <label for="time-in">Timestamp:</label>
+        <input type="text" id="time" name="time" required>
 
         <button type="button" onclick="addRoom()">Add Room</button>
     </form>
@@ -41,8 +38,7 @@
             const room = document.getElementById('room').value;
             const id = document.getElementById('id').value;
             const group = document.getElementById('group').value;
-            const timeIn = document.getElementById('time-in').value;
-            const timeOut = document.getElementById('time-out').value;
+            const time = document.getElementById('time').value;
 
             // Create table row
             const row = document.createElement('tr');
@@ -55,7 +51,7 @@
             roomCell.textContent = room;
             idCell.textContent = id;
             groupCell.textContent = group;
-            timeCell.textContent = `(${timeIn}, ${timeOut})`;
+            timeCell.textContent = `(${timeIn})`;
 
             // Append cells to row
             row.appendChild(roomCell);
@@ -71,8 +67,7 @@
             document.getElementById('room').value = '';
             document.getElementById('id').value = '';
             document.getElementById('group').value = '';
-            document.getElementById('time-in').value = '';
-            document.getElementById('time-out').value = '';
+            document.getElementById('time').value = '';
         }
     </script>
 </body>
