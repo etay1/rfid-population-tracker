@@ -5,7 +5,7 @@ local = False
 mongo_client = None
 if local:
     mongo_client = MongoClient("localhost")
-else: 
+else:
     mongo_client = MongoClient("mongo")
 db = mongo_client["rfiddata"]
 
@@ -18,15 +18,23 @@ Schema: {
 }
 """
 
-def insert_record(roomID,bandID,group,timestamp):
+def insert_record(roomID, bandID, group, timestamp):
     room_collection = db["rooms"]
 
-    #see if roomID exists in collection 
-        #if so update the collection with the bandID/group/timestamp
-            #if bandID exists update timestamp, 
-                #if no records exist for time_slots create new entry in list
-                #otherwise add appropriate entry for time_out
-            #create new object in kvp in roomID : []    
-    #else make new record
+    # Check if roomID exists in collection
+    if roomID in room_collection:
+        room_records = room_collection[roomID]
+        # Check if bandID exists in room_records
+        for record in room_records:
+            if record["id"] == bandID:
+                # Update timestamp for existing bandID
+                record["time_slots"].append({"time out": timestamp})
+                return
+
+        # Create new entry for bandID if not found
+        room_records.append({"id": bandID, "group": group, "time_slots": [{"time in": timestamp, "time out": None}]})
+    else:
+        # Create new record for roomID
+        room_collection[roomID] = [{"id": bandID, "group": group, "time_slots": [{"time in": timestamp, "time out": None}]}]
 
     return

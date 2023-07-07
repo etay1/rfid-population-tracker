@@ -5,15 +5,18 @@ from databasehandler import *
 
 app = Flask(__name__)
 
-@app.route("/",methods=['GET'])
+# Route for the home page
+@app.route("/", methods=['GET'])
 def index():
     return render_template('index.html')
 
-@app.route("/sensor",methods=['GET','POST'])
+# Route for the sensor page
+@app.route("/sensor", methods=['GET', 'POST'])
 def serve_sensor():
     if request.method == 'GET':
         return render_template("sensor.html")
     else:
+        # Process the form data submitted via POST request
         group = request.form["group"]
         bandID = request.form["id"]
         room = request.form["room"]
@@ -21,5 +24,9 @@ def serve_sensor():
         time = datetime.strptime(timeString, "%Y-%m-%d %H:%M:%S")
 
 if __name__ == '__main__':
+    # Retrieve the port number from the environment variable, or use 5000 as the default
     port = int(os.environ.get('PORT', 5000))
-    app.run(debug=True,host='0.0.0.0', port=port)
+    
+    # Run the Flask application in debug mode, allowing detailed error messages
+    # Set the host to '0.0.0.0' to make the app accessible from any IP address
+    app.run(debug=True, host='0.0.0.0', port=port)
