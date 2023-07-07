@@ -1,3 +1,66 @@
+function ajaxPostRequest(path, data){
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+        if (this.readyState===4&&this.status ===200){
+            //callback(this.response);
+        }
+    };
+    request.open("POST", path);
+    request.send(data);
+  } 
+
+function ajaxGetRequest(path,callback){
+  let request = new XMLHttpRequest();
+  let toReturn;
+  request.onreadystatechange = function(){
+    if (this.readyState===4&&this.status ===200){
+        callback(this.response);
+    }
+  };
+  request.open("GET", path);
+  request.send();
+  return toReturn;
+}
+
+
+function populate(data){
+    const table = document.getElementById("room-table");
+    // Loop through each room
+    let rooms = JSON.parse(data);
+    console.log(rooms); 
+
+    rooms.forEach(room => {
+        // Loop through each person in the room
+        room.people.forEach(person => {
+        // Create a new row for each person
+        const row = table.insertRow();
+    
+        // Insert the values into the cells
+        const roomCell = row.insertCell();
+        roomCell.innerHTML = room.roomID;
+    
+        const idCell = row.insertCell();
+        idCell.innerHTML = person.id;
+    
+        const groupCell = row.insertCell();
+        groupCell.innerHTML = person.group;
+    
+        // Loop through each time slot for the person
+        person.time_slots.forEach(time_slots => {
+            const timeInCell = row.insertCell();
+            timeInCell.innerHTML = time_slots["time_in"];
+    
+            const timeOutCell = row.insertCell();
+            timeOutCell.innerHTML = time_slots["time_out"];
+        });
+        });
+    });
+}
+
+function generate(){
+    ajaxGetRequest("/data",populate);
+}
+
 function rfid_scanner() {
     // Retrieve input values
     const room = document.getElementById('room').value;
@@ -5,6 +68,17 @@ function rfid_scanner() {
     const group = document.getElementById('group').value;
     const currentTime = new Date().toLocaleTimeString();
 
+    let toSend = JSON.stringify({"room":room,"id":id,"group":group,"time":currentTime});
+    ajaxPostRequest("/sensor",toSend);
+
+
+
+
+
+
+
+
+/*
     // Check if time in and time out fields exist
     const timeInField = document.getElementById('time-in');
     const timeOutField = document.getElementById('time-out');
@@ -80,8 +154,11 @@ function rfid_scanner() {
         table.appendChild(row);
     }
 
+    */
     // Reset form inputs
     document.getElementById('room').value = '';
     document.getElementById('id').value = '';
     document.getElementById('group').value = '';
+
+    location.reload();
 }

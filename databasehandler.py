@@ -40,12 +40,22 @@ def insert_record(roomID,bandID,group,timestamp):
             if(person["id"] == bandID):
                 addToggle = False
                 slots = person["time_slots"]
-                lastEntry = slots[len(slots)]
+                lastEntry = slots[len(slots) - 1]
                 if lastEntry["time_out"] == None:
                     lastEntry["time_out"] = timestamp
                 else:
                     lastEntry.append({"time_in":timestamp,"time_out":None})
         if addToggle:
             peopleList.append({"id":bandID,"group":group,"time_slots":[{"time_in":timestamp,"time_out":None}]})
-        room_collection.update_one({"roomID":roomID},{"people":peopleList})
+        
+        
+        room_collection.delete_one({"roomID":roomID})
+        room_collection.insert_one({"roomID":roomID,"people":peopleList})
     return 
+
+def get_records():
+    room_collection = db["rooms"]
+    curated = list(room_collection.find({},{"_id":0}))
+    if curated == list():
+        return None
+    return curated
