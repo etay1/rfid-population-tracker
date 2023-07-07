@@ -7,10 +7,7 @@
 <body>
     <h1>Room Details</h1>
 
-    <form>
-        <!-- <label for="room">Room:</label>
-        <input type="text" id="room" name="room" required> -->
-
+    <form action="sensor" id="sensor-form" method="post" enctype="multipart/form-data">
         <label for="room">Room:</label>
         <select id="room" name="room">
             <option value="room1">The Mona Lisa Gallery</option>
@@ -34,16 +31,17 @@
             <option value="child">Child</option>
             <option value="adult">Adult</option>
             <option value="senior">Senior</option>
+
         </select>
 
-        <label for="time-in">Time In:</label>
-        <input type="text" id="time-in" name="time-in" required>
+        <label for="time-in">Timestamp:</label>
+        <input type="text" id="time" name="time" required>
 
         <label for="time-out">Time Out:</label>
         <input type="text" id="time-out" name="time-out">
 
         <button type="button" onclick="rfid_scanner()">Scan</button>
-    </form>
+
 
     <h2>Population:</h2>
     <table id="room-table">
@@ -61,8 +59,7 @@
             const room = document.getElementById('room').value;
             const id = document.getElementById('id').value;
             const group = document.getElementById('group').value;
-            const timeIn = document.getElementById('time-in').value;
-            const timeOut = document.getElementById('time-out').value;
+            const time = document.getElementById('time').value;
 
             // Create table row
             const row = document.createElement('tr');
@@ -75,7 +72,7 @@
             roomCell.textContent = room;
             idCell.textContent = id;
             groupCell.textContent = group;
-            timeCell.textContent = `(${timeIn}, ${timeOut})`;
+            timeCell.textContent = `(${timeIn})`;
 
             // Append cells to row
             row.appendChild(roomCell);
@@ -91,9 +88,9 @@
             document.getElementById('room').value = '';
             document.getElementById('id').value = '';
             document.getElementById('group').value = '';
-            document.getElementById('time-in').value = '';
-            document.getElementById('time-out').value = '';
+            document.getElementById('time').value = '';
         }
     </script>
+   
 </body>
 </html>
