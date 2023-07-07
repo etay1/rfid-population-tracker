@@ -25,7 +25,7 @@
         </select>
 
         <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required>
+        <input type="text" id="id" name="id">
 
         <label for="group">Group:</label>
         <select id="group" name="group">
@@ -34,13 +34,8 @@
             <option value="senior">Senior</option>
         </select>
 
-        <label for="time-in">Time In:</label>
-        <input type="text" id="time-in" name="time-in" required>
-
-        <label for="time-out">Time Out:</label>
-        <input type="text" id="time-out" name="time-out">
-
         <button type="button" onclick="rfid_scanner()">Scan</button>
+        
     </form>
 
     <h2>Population:</h2>
@@ -49,8 +44,12 @@
             <th>Room</th>
             <th>ID</th>
             <th>Group</th>
-            <th>Time Slots</th>
+            <th>Time In</th>
+            <th>Time Out</th>
         </tr>
     </table>
+    
+    <input type="hidden" id="time-in" name="time-in">
+    <input type="hidden" id="time-out" name="time-out">
 </body>
 </html>
