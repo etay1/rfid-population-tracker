@@ -19,7 +19,9 @@ def serve_sensor():
         room = request.form["room"]
         timeString = request.form["time"]
         time = datetime.strptime(timeString, "%Y-%m-%d %H:%M:%S")
+        insert_record(room,bandID,group,time)
+        return render_template("sensor.html")
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
-    app.run(debug=True,host='0.0.0.0', port=port)
+    app.run(debug=True, host='0.0.0.0', port=port)
