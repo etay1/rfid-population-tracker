@@ -1,4 +1,5 @@
-# seneca-one-hackathon
+# RFID Tracker
+Developed during the Seneca One Hackathon @TechBuffalo
 
 ## Inspiration
 
