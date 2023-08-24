@@ -1,9 +1,11 @@
 # seneca-one-hackathon
 
 ##Inspiration
+
 Our inspiration for RFID Population Tracker came from the need to accurately track and manage the population within the Buffalo Museum. We wanted to provide valuable insights into visitor demographics, preferences for specific locations, and entrance/exit timestamps to enhance the overall museum experience.
 
-##What it does
+#What it does
+
 RFID Population Tracker is a software solution that utilizes RFID technology to track and manage the population within the museum. It collects real-time data on visitor movements, analyzes demographics, and provides valuable insights for museum administrators. The software records entrance and exit timestamps, identifies visitor preferences, and generates reports for data-driven decision-making.
 
 ##How we built it
