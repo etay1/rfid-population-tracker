@@ -21,4 +21,9 @@ We are proud to have created RFID Population Tracker, a software solution that e
 ## What we learned
 Throughout the development process, we gained a deep understanding of RFID technology and its applications in population tracking. We also learned how to integrate complex systems and technologies to create a user-friendly and efficient software solution. Additionally, we enhanced our knowledge of data analytics and visualization techniques to present actionable insights to museum administrators.
 
+![frontend_rfid](https://github.com/etay1/seneca-one-hackathon/assets/98202550/31e2f2cf-a09c-4c1a-a18e-baaf981d9c0a)
+
+![backend_rfid](https://github.com/etay1/seneca-one-hackathon/assets/98202550/da9086f4-e41c-43ae-91bc-4e1657257228)
+
+
 https://devpost.com/software/555768
