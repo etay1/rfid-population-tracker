@@ -1,5 +1,5 @@
 # RFID Tracker
-Developed during the Seneca One Hackathon @TechBuffalo
+Developed during the Seneca One Hackathon in under 12 hours @TechBuffalo
 
 ## Inspiration
 
