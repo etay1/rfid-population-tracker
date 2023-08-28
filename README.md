@@ -7,7 +7,7 @@ Our inspiration for RFID Population Tracker came from the need to accurately tra
 
 ## What it does
 
-RFID Population Tracker is a software solution that utilizes RFID technology to track and manage the population within the museum. It collects real-time data on visitor movements, analyzes demographics, and provides valuable insights for museum administrators. The software records entrance and exit timestamps, identifies visitor preferences, and generates reports for data-driven decision-making.
+RFID Population Tracker is a software solution to track and manage the population within the museum. It collects real-time data on visitor movements, analyzes demographics, and provides valuable insights for museum administrators. The software records entrance and exit timestamps, identifies visitor preferences, and generates reports for data-driven decision-making.
 
 ## How we built it
 We built RFID Population Tracker using a combination of RFID technology, data analytics, and user-friendly interfaces. The software incorporates RFID tags or cards for visitor identification and tracking. We developed a robust backend system to process and analyze the collected data, and a user-friendly frontend interface for administrators to access and utilize the insights.
